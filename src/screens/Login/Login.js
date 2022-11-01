@@ -56,7 +56,7 @@ export default function Welcome() {
       registerInformation.password
     )
       .then(() => {
-        navigate("/home");
+        navigate("/landingpage");
       })
       .catch((err) => alert(err.message));
   };
