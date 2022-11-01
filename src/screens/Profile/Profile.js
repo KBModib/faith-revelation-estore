@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react"
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { BsFillCartFill, BsFillHeartFill } from "react-icons/bs";
 import './Profile.css';
@@ -9,9 +9,31 @@ import styled from 'styled-components';
 import Header from '../../components/banner/Header';
 import { Link } from 'react-router-dom';
 
-
-
+import { signOut, onAuthStateChanged } from "firebase/auth";
+import {getAuth} from 'firebase/auth';
 const Profile = () => {
+
+	const [loginState, setLoginState] = useState(null);
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        setLoginState(true)
+        
+        // ...
+      } 
+      else{
+          setLoginState(false)
+      }
+    });
+    
+const logout = async () =>{
+    await signOut(auth);
+    setLoginState(false);
+    window.location="/Login";
+
+}
 
 	const navigate = useNavigate();
 
@@ -66,11 +88,12 @@ const Profile = () => {
 					<button className='btn' onClick={AccountDetails}>Account Details <AiOutlineArrowRight /></button>
 					<button className='btn'onClick={PendingOrders}>Pending Orders <AiOutlineArrowRight /></button>
 					<button className='btn'onClick={OrderHistory}>Order History <AiOutlineArrowRight /></button>
-
+					<button  onClick={logout}>Log out</button>
 					</div>
 					<div className='btn-btm'>
 					<button className='btn-sec'onClick={Cart}>Cart <BsFillCartFill size={45} className='icon' /></button>
 					<button className='btn-sec'onClick={Wishlist}>Wishlist <BsFillHeartFill size={45} className='icon' /></button>
+					
 					</div>
 
 				<Routes>

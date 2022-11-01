@@ -24,7 +24,7 @@ const Winter = () => {
         console.log('Result'+result);
       
     
-  }, [productInfo]);
+  }, []);
 
   return (
     <>
@@ -47,20 +47,14 @@ const Winter = () => {
         <h3>{productInfo.prodName}</h3>
 
          {/* new */}
-         {coloursInfo.map((coloursInfo,ind)=>{
-      console.log(coloursInfo.price)
-      return(
-      <div key={ind}>
         
-        <h3>{coloursInfo.price}</h3>
-        
-      </div>)
-})}
 
 
 
       </div>)
+
 })}
+
           </div>
     <Footer/>
 </Container>

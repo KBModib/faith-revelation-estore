@@ -42,7 +42,7 @@ const Summer = () => {
     {productInfo.map((productInfo,index)=>{
       console.log(productInfo.prodName)
       return(
-      <div>
+      <div key={index}>
         <img src={productInfo.image}></img>
         <h3>{productInfo.prod}</h3>
         <h3>{productInfo.prodName}</h3>
