@@ -81,8 +81,6 @@ const Profile = () => {
 					<Route path="/cart" element={<Cart />} />
 				</Routes>
 				</div>
-				
-				
 			</div>
 			<Footer/>
 </Container>
