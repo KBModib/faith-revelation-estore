@@ -26,7 +26,7 @@ import {FaShoppingCart, FaHeart} from 'react-icons/fa';
       price: 'R242.00',
       range: 'Summer Gear',
     image:"https://elevationstore.fr/8454-home_default/pack-2-tee-shirts-col-rond.jpg",
-    availabilty:'out stock',
+    availabilty:'in stock',
   },
   {
     item: 'Formal skirt',
@@ -46,7 +46,8 @@ import {FaShoppingCart, FaHeart} from 'react-icons/fa';
         <Header/>
     </Banner>
       <h1>Wishlist page</h1>
-     
+      <br></br>
+        <p>Table</p>
         
        
           <table className='styled-table'>
@@ -61,12 +62,11 @@ import {FaShoppingCart, FaHeart} from 'react-icons/fa';
                   
                     </tr>
                   </thead>
-                
+                  <br></br>
                   <tbody>
                     {Object.keys(data).map((id, index)=>{
                 
                       return(
-
                         <tr key={id}> 
                          <td><img src={data[id].image} style={{width:"50px",height:"50px",borderRadius:"10px"}}/> </td>
                            <td>{data[id].item}</td>

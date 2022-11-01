@@ -14,7 +14,9 @@ import { db } from '../config/Firebase';
 const Header = () => {
     const [bar, setBar ] = useState(false);
     const [prodList,setprodList] =useState([])
+    const [coloursList,setcoloursList] =useState([])
     window.localStorage.setItem('prodList', JSON.stringify(prodList));
+    window.localStorage.setItem('colourList', JSON.stringify(coloursList));
     
   useEffect(() => {
     
@@ -47,13 +49,14 @@ const Header = () => {
           
           
           
-          console.log('Colours: ', prodList)
+          console.log('Colours new  : ', coloursList)
         },[]);
   
        
       });
       console.log('Colours:test ', prodList)
       setprodList(prodList)
+      setcoloursList(coloursList)
     
     });
   }, []);
@@ -78,20 +81,7 @@ const Header = () => {
                 <a href><Link to='/cart'><HiShoppingCart size={20}/></Link></a>
                 <a href><Link to='/profile'><CgProfile size={20}/></Link></a>
 
-                {
-                    
-              prodList.map((id )=>{
-                console.log(id.prodName)
-                  console.log("===========",id);
-                  
-                <div key={id}>
-                    <h3>{id.prodName}</h3>
-                    <img src={id.image}  alt="Product Image" style={{ width: "100%", height: "100%", margin: "auto", display: "flex", alignItems: "center", marginTop: "-18px" }} />
-                <h3>hi</h3>
-                </div>
-                
-                
-                })}
+              
         </Nav>
         
         <div className='shadow'></div>
